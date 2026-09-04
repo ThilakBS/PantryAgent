@@ -9,7 +9,7 @@ As a college student, I often find myself planning to make amazing meals (a litt
 ## Purpose
 The goal of PantryAgent is to assist me in these two steps, so that I can use the unnecessary time that I spend thinking about what groceries I have and how to use them, in actually making food.
  
-## Status
+## Currently Working on:
  
 Initializing the base file for the project
  
