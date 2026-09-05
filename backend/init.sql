@@ -21,13 +21,21 @@ CREATE TABLE users (
     join_date   DATE NOT NULL DEFAULT CURRENT_DATE
 );
 
+-- stores convos by session
+
+CREATE TABLE convos (
+    convo_id    SERIAL PRIMARY KEY
+    user_id     INTEGER NOT NULL REFERENCES users(user_id),
+    ses_time    TIMESTAMPTZ NOT NULL DEFAULT CURRENT_DATE
+);
+
 -- stores messages between the user and agent
 CREATE TYPE roles AS ENUM ('user', 'assistant');
 
 CREATE TABLE messages (
     mes_id      SERIAL PRIMARY KEY
     user_id     INTEGER NOT NULL REFERENCES users(user_id),
-    convo_id    INTEGer NOT NULL REFERENCES users(user_id),
+    convo_id    INTEGer NOT NULL REFERENCES users(convo_id),
     mes_role    roles NOT NULL,
     content     text,
     convo_time  DATE NOT NULL DEFAULT CURRENT_DATE
