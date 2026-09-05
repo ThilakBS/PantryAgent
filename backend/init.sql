@@ -26,7 +26,8 @@ CREATE TABLE users (
 CREATE TABLE convos (
     convo_id    SERIAL PRIMARY KEY
     user_id     INTEGER NOT NULL REFERENCES users(user_id),
-    ses_time    TIMESTAMPTZ NOT NULL DEFAULT CURRENT_DATE
+    ses_time    TIMESTAMPTZ NOT NULL DEFAULT CURRENT_DATE,
+    title       text
 );
 
 -- stores messages between the user and agent
