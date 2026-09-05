@@ -14,10 +14,11 @@ CREATE TABLE pantry (
 );
 
 -- stores info about users
-CREATE TABLE user(
+CREATE TABLE users (
     user_id     SERIAL PRIMARY KEY,
     user_name   text NOT NULL,
     contact     text NOT NULL,
     join_date   DATE NOT NULL
 );
 
+-- 
