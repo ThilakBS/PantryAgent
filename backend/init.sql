@@ -35,7 +35,15 @@ CREATE TYPE roles AS ENUM ('user', 'assistant');
 CREATE TABLE messages (
     mes_id      SERIAL PRIMARY KEY,
     convo_id    INTEGER NOT NULL REFERENCES convos(convo_id),
+    user_id     INTEGER NOT NULL REFERENCES users(user_id),
     mes_role    roles NOT NULL,
     content     text NOT NULL,
     convo_time  TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- log of the agents tool calling actions
+CREATE TABLE tools(
+    call_id     SERIAL PRIMARY KEY,
+    mes_id      INTEGER NOT NULL REFERENCES messages(med_id),
+    tool_name   text NOT NULL, 
 );
