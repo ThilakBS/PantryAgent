@@ -54,3 +54,10 @@ CREATE TABLE exp_alert(
     obj_id      INTEGER NOT NULL REFERENCES pantry(obj_id),
     alerted     TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP 
 );
+
+-- tracks recipe history to cater future suggestions
+CREATE TABLE recipe_history(
+    recipe_id   SERIAL PRIMARY KEY,
+    convo_id    INTEGER NOT NULL REFERENCES convos(convo_id),
+    recipe_name text NOT NULL
+);
