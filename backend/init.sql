@@ -47,3 +47,10 @@ CREATE TABLE tools(
     mes_id      INTEGER NOT NULL REFERENCES messages(med_id),
     tool_name   text NOT NULL, 
 );
+
+-- tracks expiration alerts to avoid repeated calls
+CREATE TABLE exp_alert(
+    alert       SERIAL PRIMARY KEY,
+    obj_id      INTEGER NOT NULL REFERENCES pantry(obj_id),
+    alerted     TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP 
+);
