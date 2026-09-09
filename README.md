@@ -11,4 +11,4 @@ The goal of PantryAgent is to assist me in these two steps, so that I can use th
  
 ## Currently Working on:
  
-Databases: Store the memory for inventory and looping of the agent
+Setting up FastAPI
