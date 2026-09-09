@@ -44,8 +44,8 @@ CREATE TABLE messages (
 -- log of the agents tool calling actions
 CREATE TABLE tools(
     call_id     SERIAL PRIMARY KEY,
-    mes_id      INTEGER NOT NULL REFERENCES messages(med_id),
-    tool_name   text NOT NULL, 
+    mes_id      INTEGER NOT NULL REFERENCES messages(mes_id),
+    tool_name   text NOT NULL
 );
 
 -- tracks expiration alerts to avoid repeated calls
