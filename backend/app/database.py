@@ -7,6 +7,7 @@ load_dotenv() #load .env values
 
 d_base = os.environ["DATABASE_URL"]
 
+#establish connection to Supabase session
 engine = create_engine(d_base)
 session = sessionmaker(bind=engine)
 
