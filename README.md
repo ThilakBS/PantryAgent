@@ -11,4 +11,4 @@ The goal of PantryAgent is to assist me in these two steps, so that I can use th
  
 ## Currently Working on:
  
-Setting up FastAPI
+database.py — sets up the SQLAlchemy engine and session dependency used to connect the FastAPI backend to the Supabase Postgres database.
