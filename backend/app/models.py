@@ -49,3 +49,11 @@ class Pantry(Base):
     expiration: Mapped[Optional[datetime.date]]
     category: Mapped[cate]
 
+# Model of convos SQL Table
+class Convos(Base):
+    __tablename__ = 'convos'
+
+    convo_id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.user_id"))
+    ses_time: Mapped[datetime.datetime]
+    title: Mapped[Optional[str]]
