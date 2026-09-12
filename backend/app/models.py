@@ -57,3 +57,19 @@ class Convos(Base):
     user_id: Mapped[int] = mapped_column(ForeignKey("users.user_id"))
     ses_time: Mapped[datetime.datetime]
     title: Mapped[Optional[str]]
+
+# Model of messages SQL Table
+class roles(enum.Enum):
+    user = 'user'
+    assistant = 'assistant'
+
+
+class Messages(Base):
+    __tablename__ = 'messages'
+
+    mes_id: Mapped[int] = mapped_column(primary_key=True)
+    convo_id: Mapped[int] = mapped_column(ForeignKey("convos.convo_id"))
+    user_id: Mapped[int] = mapped_column(ForeignKey("users.user_id"))
+    mes_role: Mapped[roles]
+    content: Mapped[str]
+    convo_time: Mapped[datetime.datetime]
