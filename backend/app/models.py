@@ -73,3 +73,11 @@ class Messages(Base):
     mes_role: Mapped[roles]
     content: Mapped[str]
     convo_time: Mapped[datetime.datetime]
+
+# Model of tool schema
+class tools(Base):
+    __tablename__ = 'tools'
+
+    call_id: Mapped[int] = mapped_column(primary_key=True)
+    mes_id: Mapped[int] = mapped_column(ForeignKey("messages.mes_id"))
+    tool_name: Mapped[str]
