@@ -17,7 +17,7 @@ class User(Base):
     join_date: Mapped[datetime.date]
 
 # Model of pantry SQL Table
-class units(enum.Enum):
+class u(enum.Enum):
     mL = 'mL'
     L = 'L'
     g ='g'
