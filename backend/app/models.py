@@ -74,10 +74,26 @@ class Messages(Base):
     content: Mapped[str]
     convo_time: Mapped[datetime.datetime]
 
-# Model of tool schema
+# Model of tool sql table
 class tools(Base):
     __tablename__ = 'tools'
 
     call_id: Mapped[int] = mapped_column(primary_key=True)
     mes_id: Mapped[int] = mapped_column(ForeignKey("messages.mes_id"))
     tool_name: Mapped[str]
+
+# Model of expiration sql table
+class expiration(Base):
+    __table_name__ = 'exp_alert'
+
+    alert: Mapped[int] = mapped_column(primary_key=True)
+    obj_id: Mapped[int] = mapped_column(ForeignKey("pantry.obj_id"))
+    alerted: Mapped[datetime.datetime]
+
+# Model of recipie history SQL table
+class recipe_history(Base):
+    __table_name__ = 'recipe_history'
+
+    recipe_id: Mapped[int] = mapped_column(primary_key=True)
+    convo_id: Mapped[int] = mapped_column(ForeignKey("convos.convo_id"))
+    recipe_name: Mapped[str]
