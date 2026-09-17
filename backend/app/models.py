@@ -44,7 +44,7 @@ class Pantry(Base):
     user_id: Mapped[int] = mapped_column(ForeignKey("users.user_id"))
     food_name: Mapped[str]
     quantity: Mapped[float]
-    unit: Mapped[units]
+    unit: Mapped[u] = mapped_column(Enum(u, name="u"))
     date_added: Mapped[datetime.date]
     expiration: Mapped[Optional[datetime.date]]
     category: Mapped[cate]
@@ -84,7 +84,7 @@ class tools(Base):
 
 # Model of expiration sql table
 class expiration(Base):
-    __table_name__ = 'exp_alert'
+    __tablename__ = 'exp_alert'
 
     alert: Mapped[int] = mapped_column(primary_key=True)
     obj_id: Mapped[int] = mapped_column(ForeignKey("pantry.obj_id"))
@@ -92,7 +92,7 @@ class expiration(Base):
 
 # Model of recipie history SQL table
 class recipe_history(Base):
-    __table_name__ = 'recipe_history'
+    __tablename__ = 'recipe_history'
 
     recipe_id: Mapped[int] = mapped_column(primary_key=True)
     convo_id: Mapped[int] = mapped_column(ForeignKey("convos.convo_id"))
